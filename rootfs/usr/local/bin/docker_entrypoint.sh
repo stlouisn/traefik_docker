@@ -3,6 +3,5 @@
 #=========================================================================================
 
 # Start traefik in console mode
-#exec gosu traefik \
-#	traefik
-exec traefik
+exec \
+  /usr/local/bin/traefik
