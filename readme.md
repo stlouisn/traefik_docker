@@ -19,8 +19,8 @@ Traefik is a modern HTTP reverse proxy and load balancer made to deploy microser
 
 ### Tags
 
-[![Version](https://images.microbadger.com/badges/version/stlouisn/traefik:stable.svg)][microbadger_url]
-[![Layers](https://images.microbadger.com/badges/image/stlouisn/traefik:stable.svg)][microbadger_url]
+[![Version](https://images.microbadger.com/badges/version/stlouisn/traefik:latest.svg)][microbadger_url]
+[![Layers](https://images.microbadger.com/badges/image/stlouisn/traefik:latest.svg)][microbadger_url]
 
 ### Usage
 
