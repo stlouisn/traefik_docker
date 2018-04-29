@@ -34,9 +34,9 @@ before_install:
   - docker version
 
 install:
-  - mkdir -p ./userfs/usr/local/bin/
-  - curl -L -o ./userfs/usr/local/bin/traefik https://github.com/containous/traefik/releases/download/v${DOCKER_VERSION}/traefik_linux-amd64
-  - chmod 0500 ./userfs/usr/local/bin/traefik
+  - mkdir -p ./rootfs/usr/local/bin/
+  - curl -L -o ./rootfs/usr/local/bin/traefik https://github.com/containous/traefik/releases/download/v${DOCKER_VERSION}/traefik_linux-amd64
+  - chmod 0500 ./rootfs/usr/local/bin/traefik
 
 before_script:
   - sed -i -e '/^$/d' -e 's/^[ \t]*//' -e '/^#/d' Dockerfile
