@@ -34,8 +34,7 @@ before_install:
   - docker version
 
 install:
-  - echo $DOCKER_TAG
-  - echo $DOCKER_VERSION
+  - mkdir -p ./userfs/usr/local/bin/
   - curl -L -o ./userfs/usr/local/bin/traefik https://github.com/containous/traefik/releases/download/v${DOCKER_VERSION}/traefik_linux-amd64
   - chmod 0500 ./userfs/usr/local/bin/traefik
 
