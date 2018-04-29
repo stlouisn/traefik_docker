@@ -3,5 +3,4 @@
 #=========================================================================================
 
 # Start traefik in console mode
-exec \
-  /usr/local/bin/traefik
+exec /usr/local/bin/traefik
