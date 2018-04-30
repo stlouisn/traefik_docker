@@ -76,12 +76,12 @@ entryPoint = "traefik"
         [entryPoints.traefik.auth]
             [entryPoints.traefik.auth.basic]
             users = [
-                "admin:INSERT_HASHED_PASSWORD"
+                "admin:HASHED_PASSWORD"
             ]
 
 [acme]
 
-    email = "INSERT_EMAIL_ADDRESS"
+    email = "EMAIL_ADDRESS"
     storage = "/etc/traefik/acme.json"
     entryPoint = "https"
     onDemand = false
@@ -95,7 +95,7 @@ entryPoint = "traefik"
 
     # Default domain. Can be overridden by setting the "traefik.domain" label on a container
     #
-    domain = "INSERT_DOMAIN_NAME"
+    domain = "DOMAIN_NAME"
 
     # Enable watch docker changes
     #
