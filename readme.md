@@ -31,17 +31,18 @@ mkdir -p /docker/traefik
 # change current directory
 cd /docker/traefik
 
+# download docker-compose file
+curl -Ss -o docker-compose.yml https://raw.githubusercontent.com/stlouisn/traefik_docker/master/docker-compose.yml
+
 # create config directory
 mkdir -p /docker/traefik/config
 
 # download traefik.toml file
 curl -Ss -o /docker/traefik/config/traefik.toml https://raw.githubusercontent.com/stlouisn/traefik_docker/master/traefik.toml
 
-# modify traefik.toml file [ HASHED_PASSWORD, EMAIL_ADDRESS, DOMAIN_NAME ]
+# both traefik.toml and docker-compose.yml will require modifications [ HASHED_PASSWORD, EMAIL_ADDRESS, DOMAIN_NAME ]
+nano docker-compose.yml
 nano config/traefik.toml
-
-# download docker-compose file
-curl -Ss -o docker-compose.yml https://raw.githubusercontent.com/stlouisn/traefik_docker/master/docker-compose.yml
 
 # start lidarr container
 docker-compose up --detach --build --remove-orphans
