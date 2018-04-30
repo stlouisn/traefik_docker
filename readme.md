@@ -7,7 +7,7 @@
 [feathub_data]: http://feathub.com/stlouisn/traefik_docker?format=svg
 [feathub_url]: http://feathub.com/stlouisn/traefik_docker
 [issues_url]: https://github.com/stlouisn/traefik_docker/issues
-[slack_url]: https://stlouisn.slack.com/messages/GAFBYNHRQ
+[slack_url]: https://stlouisn.slack.com/messages/CAFJUAVEZ
 
 ## Traefik Docker
 
