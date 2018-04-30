@@ -40,7 +40,8 @@ mkdir -p /docker/traefik/config
 # download traefik.toml file
 curl -Ss -o /docker/traefik/config/traefik.toml https://raw.githubusercontent.com/stlouisn/traefik_docker/master/traefik.toml
 
-# both traefik.toml and docker-compose.yml will require modifications [ HASHED_PASSWORD, EMAIL_ADDRESS, DOMAIN_NAME ]
+# both traefik.toml and docker-compose.yml will require modifications
+# [ HASHED_PASSWORD, EMAIL_ADDRESS, DOMAIN_NAME ]
 nano docker-compose.yml
 nano config/traefik.toml
 
