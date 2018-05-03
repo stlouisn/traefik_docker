@@ -22,33 +22,6 @@ Traefik is a modern HTTP reverse proxy and load balancer made to deploy microser
 [![Version](https://images.microbadger.com/badges/version/stlouisn/traefik:latest.svg)][microbadger_url]
 [![Layers](https://images.microbadger.com/badges/image/stlouisn/traefik:latest.svg)][microbadger_url]
 
-### Usage
-
-```
-# create traefik directory
-mkdir -p /docker/traefik
-
-# change current directory
-cd /docker/traefik
-
-# download docker-compose file
-curl -Ss -o docker-compose.yml https://raw.githubusercontent.com/stlouisn/traefik_docker/master/docker-compose.yml
-
-# create config directory
-mkdir -p /docker/traefik/config
-
-# download traefik.toml file
-curl -Ss -o /docker/traefik/config/traefik.toml https://raw.githubusercontent.com/stlouisn/traefik_docker/master/traefik.toml
-
-# both traefik.toml and docker-compose.yml will require modifications
-# [ HASHED_PASSWORD, EMAIL_ADDRESS, DOMAIN_NAME ]
-nano docker-compose.yml
-nano config/traefik.toml
-
-# start lidarr container
-docker-compose up --detach --build --remove-orphans
-```
-
 ### Feature Requests
 
 [![Feature Requests][feathub_data]][feathub_url]
