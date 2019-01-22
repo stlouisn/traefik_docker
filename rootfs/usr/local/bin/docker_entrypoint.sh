@@ -2,4 +2,4 @@
 
 # Start traefik in console mode
 exec traefik \
-  --configfile /config/traefik.toml
+  --configfile=/config/traefik.toml
