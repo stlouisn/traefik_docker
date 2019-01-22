@@ -3,16 +3,11 @@ dist: trusty
 group: travis_latest
 sudo: required
 
-branches:
-  only:
-    - master
+#  commit_message != "Update readme.md" AND \
+#  commit_message != "Update docker-compose.yml" AND \
+#  commit_message != ^travis.yml$
 
-if: |
-  commit_message != "Update readme.md" AND \
-  commit_message != "Update docker-compose.yml" AND \
-  commit_message != ^travis.yml$
-
-if: NOT branch = master
+if: branch = master
 #if: NOT commit_message =~ /.travis.yml/
 
 addons:
