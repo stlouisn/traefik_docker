@@ -26,6 +26,7 @@ env:
   matrix:
     - DOCKER_TAG="latest"
       DOCKER_VERSION="`curl -sSL https://github.com/containous/traefik/releases/ | grep -o '[0-9].[0-9].[0-9]/traefik_linux-amd64' | awk -F '/' {'print $1'} | head -n 1`"
+      DOWNLOAD_URL="https://github.com/containous/traefik/releases/download/v${DOCKER_VERSION}/traefik_linux-amd64"
 
 before_install:
   - docker version
@@ -33,7 +34,7 @@ before_install:
 
 install:
   - mkdir -p ./rootfs/usr/local/bin
-  - curl -L -o ./rootfs/usr/local/bin/traefik https://github.com/containous/traefik/releases/download/v${DOCKER_VERSION}/traefik_linux-amd64
+  - curl -L -o ./rootfs/usr/local/bin/traefik ${DOWNLOAD_URL}
   - chmod 0500 ./rootfs/usr/local/bin/traefik
 
 before_script:
