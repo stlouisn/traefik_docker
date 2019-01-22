@@ -2,6 +2,6 @@ FROM stlouisn/ubuntu:rolling
 
 COPY rootfs /
 
-VOLUME /etc/traefik
+VOLUME /config
 
 ENTRYPOINT ["/usr/local/bin/docker_entrypoint.sh"]
