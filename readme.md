@@ -14,7 +14,7 @@
 [![Build Status][travis_logo]][travis_url]
 [![Docker Stars][docker_stars_logo]][docker_hub_url]
 [![Docker Pulls][docker_pulls_logo]][docker_hub_url]
-[![License: MIT][https://img.shields.io/badge/License-MIT-yellow.svg]][https://opensource.org/licenses/MIT]
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Traefik is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease.
 
