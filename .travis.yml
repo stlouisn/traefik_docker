@@ -12,7 +12,7 @@ if: |
   commit_message != "Update docker-compose.yml" AND \
   commit_message != ^travis.yml$
 
-NOT commit_message =~ /.travis.yml/
+if: NOT commit_message =~ /.travis.yml/
 
 addons:
   apt:
