@@ -35,5 +35,4 @@ Traefik is a modern HTTP reverse proxy and load balancer made to deploy microser
 ### Links
 
 *https://traefik.io/*
-
 *https://github.com/containous/traefik*
