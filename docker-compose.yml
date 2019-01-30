@@ -1,0 +1,55 @@
+version: '2.4'
+
+services:
+
+  traefik:
+    image: stlouisn/traefik
+    container_name: traefik
+    hostname: traefik
+    environment:
+      - LC_ALL=C.UTF-8
+      - TZ=UTC
+    labels:
+      - traefik.enable=true
+      - traefik.backend=traefik
+      - traefik.frontend.rule=Host:traefik.domain.com
+      - traefik.docker.network=frontend
+      - traefik.port=8080
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /docker/traefik/config:/config
+    healthcheck:
+      test: "traefik healthcheck --configfile=/config/traefik.toml"
+      start_period: 30s
+      interval: 60s
+      timeout: 10s
+      retries: 5
+    networks:
+      - frontend
+    ports:
+      - 80:80
+      - 443:443
+
+  portainer:
+    image: portainer/portainer
+    container_name: portainer
+    hostname: portainer
+    environment:
+      - LC_ALL=C.UTF-8
+      - TZ=America/Halifax
+    labels:
+      - traefik.enable=true
+      - traefik.backend=portainer
+      - traefik.frontend.rule=Host:portainer.domain.com
+      - traefik.docker.network=frontend
+      - traefik.port=9000
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /docker/portainer/data:/data
+    networks:
+      - frontend
+    depends_on:
+      traefik:
+        condition: service_healthy
