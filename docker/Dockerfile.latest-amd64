@@ -2,6 +2,8 @@ FROM stlouisn/ubuntu:rolling-amd64
 
 COPY rootfs /
 
+COPY traefik-amd64 /usr/local/bin/traefik
+
 VOLUME /config
 
 ENTRYPOINT ["/usr/local/bin/docker_entrypoint.sh"]
