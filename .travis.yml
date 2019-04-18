@@ -55,7 +55,6 @@ script:
   - sudo bash travis/deploy.sh
 
 after_success:
-  - sudo bash travis/trigger.sh
 
 notifications:
   email:
