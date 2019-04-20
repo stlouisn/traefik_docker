@@ -18,6 +18,6 @@ for arch in $architectures; do
 		--opt filename=dockerfiles/${DOCKER_NAME}-${DOCKER_TAG}-${OS_NAME}-$arch \
 		--local dockerfile=. \
 		--local context=. \
-		--output type=image,name=docker.io/${DOCKER_USERNAME}/${DOCKER_TAG}-${OS_NAME}-$arch,push=true
+		--output type=image,name=docker.io/${DOCKER_USERNAME}/${DOCKER_NAME}:${DOCKER_TAG}-${OS_NAME}-$arch,push=true
 
 done
