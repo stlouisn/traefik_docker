@@ -13,6 +13,7 @@ for arch in $architectures; do
 	# Build temporary image
 	buildctl build \
 		--frontend dockerfile.v0 \
+		--progress plain \
 		--opt platform=linux/$arch \
 		--opt filename=dockerfiles/${DOCKER_NAME}-${DOCKER_TAG}-${OS_NAME}-$arch \
 		--local dockerfile=. \
