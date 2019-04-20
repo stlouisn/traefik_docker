@@ -2,76 +2,79 @@ version: '2.4'
 
 networks:
 
-    frontend:
-        external: true
-        name: frontend
+  frontend:
+    external: true
+    name: frontend
 
-    backend:
-        external: true
-        name: backend
+  backend:
+    external: true
+    name: backend
 
 services:
 
-    traefik:
-        image: stlouisn/traefik:latest
-        container_name: traefik
-        hostname: traefik
-        labels:
-            - traefik.enable=true
-            - traefik.backend=traefik
-            - traefik.frontend.rule=Host:traefik.DOMAIN.COM
-            - traefik.docker.network=frontend
-            - traefik.port=8080
-        restart: always
-        volumes:
-            - /var/run/docker.sock:/var/run/docker.sock
-            - /docker/traefik/config:/etc/traefik
-        mem_limit: 50M
-        memswap_limit: 50M
-        logging:
-            driver: json-file
-            options:
-                max-size: "10M"
-                max-file: "3"
-        healthcheck:
-            test: "traefik healthcheck --configfile=/etc/traefik/traefik.toml"
-            start_period: 30s
-            interval: 60s
-            timeout: 10s
-            retries: 5
-        networks:
-            - frontend
-        ports:
-            - 80:80
-            - 443:443
+  traefik:
+    image: stlouisn/traefik:latest
+    container_name: traefik
+    hostname: traefik
+    environment:
+      - LC_ALL=C.UTF-8
+      - TZ=UTC
+    labels:
+      - traefik.enable=true
+      - traefik.backend=traefik
+      - traefik.frontend.rule=Host:traefik.DOMAIN.COM
+      - traefik.docker.network=frontend
+      - traefik.port=8080
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /docker/traefik/config:/etc/traefik
+    mem_limit: 50M
+    memswap_limit: 50M
+    logging:
+      driver: json-file
+        options:
+          max-size: "10M"
+          max-file: "3"
+    healthcheck:
+      test: "traefik healthcheck --configfile=/etc/traefik/traefik.toml"
+      start_period: 30s
+      interval: 60s
+      timeout: 10s
+      retries: 5
+    networks:
+      - frontend
+    ports:
+      - 80:80
+      - 443:443
 
-    portainer:
-        image: portainer/portainer:latest
-        container_name: portainer
-        hostname: portainer
-        environment:
-            - LC_ALL=C.UTF-8
-            - TZ=America/Halifax
-        labels:
-            - traefik.enable=true
-            - traefik.backend=portainer
-            - traefik.frontend.rule=Host:portainer.DOMAIN.COM
-            - traefik.docker.network=frontend
-            - traefik.port=9000
-        restart: always
-        volumes:
-            - /var/run/docker.sock:/var/run/docker.sock
-            - ./portainer/data:/data
-        mem_limit: 50M
-        memswap_limit: 50M
-        logging:
-            driver: json-file
-            options:
-                max-size: "10M"
-                max-file: "3"
-        #healthcheck:
-        networks:
-            - frontend
-        depends_on:
-            traefik:
-                condition: service_healthy
+  portainer:
+    image: portainer/portainer:latest
+    container_name: portainer
+    hostname: portainer
+    environment:
+      - LC_ALL=C.UTF-8
+      - TZ=America/Halifax
+    labels:
+      - traefik.enable=true
+      - traefik.backend=portainer
+      - traefik.frontend.rule=Host:portainer.DOMAIN.COM
+      - traefik.docker.network=frontend
+      - traefik.port=9000
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./portainer/data:/data
+    mem_limit: 50M
+    memswap_limit: 50M
+    logging:
+      driver: json-file
+        options:
+          max-size: "10M"
+          max-file: "3"
+    #healthcheck:
+    networks:
+      - frontend
+    depends_on:
+      traefik:
+        condition: service_healthy
