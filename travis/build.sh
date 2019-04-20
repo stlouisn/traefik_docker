@@ -2,9 +2,6 @@
 
 set -u
 
-# Operating systems to build
-os="ubuntu"
-
 # Architectures to build
 architectures="arm arm64 amd64"
 
@@ -17,9 +14,9 @@ for arch in $architectures; do
 	buildctl build \
 		--frontend dockerfile.v0 \
 		--opt platform=linux/$arch \
-		--opt filename=dockerfiles/${DOCKER_NAME}-${DOCKER_TAG}-$os-$arch \
+		--opt filename=dockerfiles/${DOCKER_NAME}-${DOCKER_TAG}-${OS_NAME}-$arch \
 		--local dockerfile=. \
 		--local context=. \
-		--output type=image,name=docker.io/${DOCKER_USERNAME}/${DOCKER_NAME}:$os-$arch,push=true
+		--output type=image,name=docker.io/${DOCKER_USERNAME}/${DOCKER_TAG}-${OS_NAME}-$arch,push=true
 
 done
