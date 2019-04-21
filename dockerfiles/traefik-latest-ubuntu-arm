@@ -1,6 +1,4 @@
-FROM stlouisn/ubuntu:rolling-arm
-
-COPY rootfs /
+FROM stlouisn/ubuntu:rolling
 
 COPY traefik-arm /usr/local/bin/traefik
 
