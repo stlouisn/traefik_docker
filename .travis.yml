@@ -47,6 +47,7 @@ before_script:
   #- chmod 0500 traefik-arm64
   - curl -sSL -o traefik-amd64.tar.gz "https://github.com/containous/traefik/releases/download/v${DOCKER_VERSION}/traefik_v{DOCKER_VERSION}_linux_amd64.tar.gz"
   #- chmod 0500 traefik-amd64
+  - ls -la
 
 script:
   - sudo bash travis/build.sh
