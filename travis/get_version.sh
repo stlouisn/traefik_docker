@@ -2,5 +2,5 @@
 
 set -euo pipefail
 
-# Output latest version of traefik
-echo "$(curl -fsSL https://github.com/containous/traefik/releases/ | grep -o '[0-9]\?[0-9].[0-9]\?[0-9].[0-9]\?[0-9]/traefik_linux-amd64' | awk -F '/' {'print $1'} | head -n 1)"
+# Output traefik version from github:traefik releases
+echo "$(curl -fsSL --retry 5 --retry-delay 2 https://github.com/containous/traefik/releases/ | grep -o '[0-9]\?[0-9].[0-9]\?[0-9].[0-9]\?[0-9]/traefik_linux-amd64' | awk -F '/' {'print $1'} | head -n 1)"
