@@ -1,5 +1,5 @@
-[travis_logo]: https://travis-ci.org/stlouisn/traefik_docker.svg?branch=master
-[travis_url]: https://travis-ci.org/stlouisn/traefik_docker
+[travis_logo]: https://travis-ci.com/stlouisn/traefik_docker.svg?branch=master
+[travis_url]: https://travis-ci.com/stlouisn/traefik_docker
 [docker_stars_logo]: https://img.shields.io/docker/stars/stlouisn/traefik.svg
 [docker_pulls_logo]: https://img.shields.io/docker/pulls/stlouisn/traefik.svg
 [docker_hub_url]: https://hub.docker.com/r/stlouisn/traefik
